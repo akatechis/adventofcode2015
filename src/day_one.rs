@@ -1,5 +1,5 @@
 
-fn main_1() {
+fn part_1() {
   let end_floor: i64 = include_str!("../data/day1").chars()
   .map(|ch| match ch {
     '(' => 1,
@@ -11,7 +11,7 @@ fn main_1() {
   println!("End floor: {}", end_floor);
 }
 
-fn main_2() {
+fn part_2() {
   let steps: Vec<i8> = include_str!("../data/day1").chars()
   .map(|ch| match ch {
     '(' => 1,
@@ -33,6 +33,6 @@ fn main_2() {
 }
 
 pub fn main () {
-  main_1();
-  main_2();
+  part_1();
+  part_2();
 }

@@ -1,7 +1,5 @@
-extern crate crypto;
-
-mod day_four;
+mod day_five;
 
 fn main() {
-    day_four::main();
+    day_five::main();
 }

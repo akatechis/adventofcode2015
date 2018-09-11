@@ -1,12 +1,12 @@
 use std::cmp::min;
 
-type PresentDimensions = (usize, usize, usize);
+type Dimensions = (usize, usize, usize);
 
-fn bow_ribbon(&(l, w, h): &PresentDimensions) -> usize {
+fn bow_ribbon(&(l, w, h): &Dimensions) -> usize {
   l * w * h
 }
 
-fn wrapping_area(&(l, w, h): &PresentDimensions) -> usize {
+fn wrapping_area(&(l, w, h): &Dimensions) -> usize {
   let side_1 = l * w;
   let side_2 = w * h;
   let side_3 = h * l;
@@ -15,7 +15,7 @@ fn wrapping_area(&(l, w, h): &PresentDimensions) -> usize {
   2 * (side_1 + side_2 + side_3) + slack
 }
 
-fn wrapping_ribbon(&(l, w, h): &PresentDimensions) -> usize {
+fn wrapping_ribbon(&(l, w, h): &Dimensions) -> usize {
   let side_1 = l * w;
   let side_2 = w * h;
   let side_3 = h * l;
@@ -31,7 +31,7 @@ fn wrapping_ribbon(&(l, w, h): &PresentDimensions) -> usize {
   }
 }
 
-fn part_1(presents: &Vec<PresentDimensions>) {
+fn part_1(presents: &Vec<Dimensions>) {
   let total_paper = presents.iter()
   .map(|present| wrapping_area(&present))
   .fold(0, |a, b| a + b);
@@ -39,7 +39,7 @@ fn part_1(presents: &Vec<PresentDimensions>) {
   println!("Total paper required: {} square feet", total_paper);
 }
 
-fn part_2(presents: &Vec<PresentDimensions>) {
+fn part_2(presents: &Vec<Dimensions>) {
   let total_ribbon = presents.iter()
   .map(|present| wrapping_ribbon(&present) + bow_ribbon(&present))
   .fold(0, |a, b| {
@@ -79,7 +79,7 @@ mod tests {
 }
 
 mod data {
-  pub fn create() -> Vec<super::PresentDimensions> {
+  pub fn create() -> Vec<super::Dimensions> {
     vec![
       (3,11,24),
       (13,5,19),

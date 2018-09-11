@@ -1,3 +1,5 @@
+extern crate crypto;
+
 mod day_four;
 
 fn main() {
